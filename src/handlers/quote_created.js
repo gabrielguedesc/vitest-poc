@@ -1,23 +1,23 @@
 import { toQuote } from "../converters/quote";
-import { upsertAsync } from '../repositories/quoteRepository';
+import { upsertAsync } from "../repositories/quoteRepository";
 
 module.exports.writetosql = async (event, context) => {
-  try {
-    console.log('Inicio gravação SQL');
+	try {
+		console.log("Inicio gravação SQL");
 
-    const quote = await toQuote(event); 
+		const quote = await toQuote(event);
 
-    console.log('Fim da conversão');
+		console.log("Fim da conversão");
 
-    const affectedRows = await upsertAsync(quote);
+		const affectedRows = await upsertAsync(quote);
 
-    if (affectedRows === 0)
-      throw new Error(`Cotação id: ${quote.id} não criada`);
+		if (affectedRows === 0)
+			throw new Error(`Cotação id: ${quote.id} não criada`);
 
-    console.log(`Gravado cotação id: ${quote.id}`);
-  } catch (error) {
-    console.error('Falha no processo de integração do evento');
+		console.log(`Gravado cotação id: ${quote.id}`);
+	} catch (error) {
+		console.error("Falha no processo de integração do evento");
 
-    throw error;
-  }
+		throw error;
+	}
 };
