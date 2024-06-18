@@ -4,6 +4,7 @@ import { config } from "dotenv";
 export default defineConfig({
   test:{
     globals: true,
+    restoreMocks: true,
     coverage: {
       enabled: true,
       include: [

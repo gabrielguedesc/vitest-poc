@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test-unit:": "vitest --config ./vite.config.mjs --dir ./tests/units",
+    "test-unit": "vitest --config ./vite.config.mjs --dir ./tests/units",
     "test-unit:ui": "vitest --ui --api 1337 --config ./vite.config.mjs --dir ./tests/units",
     "test-unit:coverage": "vitest run --coverage --config ./vite.config.mjs --dir ./tests/units",
-    "test-integration": "DB_NAME=test vitest --config ./vite.config.integration.mjs --dir ./tests/integrations",
-    "test-integration:ui": "DB_NAME=test vitest --ui --api 1337 --config ./vite.config.integration.mjs --dir ./tests/integrations",
-    "test-integration:coverage": "DB_NAME=test vitest run --coverage --config ./vite.config.integration.mjs --dir ./tests/integrations"
+    "test-integration": "vitest --config ./vite.config.integration.mjs --dir ./tests/integrations",
+    "test-integration:ui": "vitest --ui --api 1337 --config ./vite.config.integration.mjs --dir ./tests/integrations",
+    "test-integration:coverage": "vitest run --coverage --config ./vite.config.integration.mjs --dir ./tests/integrations"
   },
   "keywords": [],
   "author": "",

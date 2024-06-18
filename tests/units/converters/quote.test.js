@@ -1,3 +1,4 @@
+import { vi, describe, expect, it } from "vitest";
 import { toQuote } from "../../../src/converters/quote";
 import { getByIdAsync } from '../../../src/gateways/personGateway';
 
@@ -20,7 +21,7 @@ describe('Quote converter', async () => {
     const event = {
       id: 'ed66b1fd-b9ec-4177-81a5-84e966f81f7f',
       personId: '03aac0ac-b542-49e6-857c-bb6d0a481882',
-      product: '59d96053-4bf8-44e1-80ac-ebfc8be99493',
+      productId: '59d96053-4bf8-44e1-80ac-ebfc8be99493',
       version: 2
     };
 
@@ -44,7 +45,7 @@ describe('Quote converter', async () => {
 
     // Arrange
     expect(result.id).to.be.equal(event.id);
-    expect(result.productId).to.be.equal(event.product);
+    expect(result.productId).to.be.equal(event.productId);
     expect(result.participants.name).to.be.equal(person.name);
     expect(result.participants.hash).to.be.equal(person.hash);
     expect(result.participants.role).to.be.equal(person.role);

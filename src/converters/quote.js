@@ -1,6 +1,6 @@
 import { getByIdAsync } from "../gateways/personGateway";
 
-export const  toQuote = async (event) => {
+export const toQuote = async (event) => {
   if (event.version === 1)
     throw new Error('Version not suported');
 
@@ -8,7 +8,7 @@ export const  toQuote = async (event) => {
 
   return {
     id: event.id,
-    productId: event.product,
+    productId: event.productId,
     participants: {
       name: person.name,
       hash: person.hash,

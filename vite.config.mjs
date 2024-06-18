@@ -3,13 +3,12 @@ import { config } from "dotenv";
 
 export default defineConfig({
   test:{
-    globals: true,
+    restoreMocks: true,
     coverage: {
       enabled: true,
       exclude: [
         ...configDefaults.exclude,
         'src/configs/**',
-        'src/handlers/**',
         'src/gateways/**',
         'src/repositories/**',
         'vitest.workspace.js'
@@ -21,7 +20,6 @@ export default defineConfig({
     exclude: [
       ...configDefaults.exclude,
       'src/configs/**',
-      'src/handlers/**',
       'src/gateways/**',
       'src/repositories/**',
       'vitest.workspace.js'

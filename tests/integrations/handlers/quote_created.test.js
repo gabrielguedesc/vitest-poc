@@ -1,4 +1,4 @@
-import { describe, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { writetosql } from '../../../src/handlers/quote_created'
 import { getByIdAsync } from '../../../src/repositories/quoteRepository';
 
@@ -16,7 +16,6 @@ describe('Quote created handler', async () => {
     await writetosql(event, {});
 
     // Asserts
-    expect(true).to.be.true;
     const quote = await getByIdAsync(event.id);
 
     expect(quote.id.toLocaleLowerCase()).to.be.equal(event.id);
