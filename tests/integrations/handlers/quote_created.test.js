@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { faker } from '@faker-js/faker';
 import { writetosql } from '../../../src/handlers/quote_created'
 import { getByIdAsync } from '../../../src/repositories/quoteRepository';
 
@@ -7,8 +8,8 @@ describe('Quote created handler', async () => {
     // Arrange
     const event = {
       id: 'ed66b1fd-b9ec-4177-81a5-84e966f81f7f',
-      personId: '03aac0ac-b542-49e6-857c-bb6d0a481882',
-      product: '59d96053-4bf8-44e1-80ac-ebfc8be99493',
+      personId: faker.string.uuid(),
+      productId: faker.string.uuid(),
       version: 2
     };
 
@@ -19,6 +20,6 @@ describe('Quote created handler', async () => {
     const quote = await getByIdAsync(event.id);
 
     expect(quote.id.toLocaleLowerCase()).to.be.equal(event.id);
-    expect(quote.product_id.toLocaleLowerCase()).to.be.equal(event.product);
-  })
+    expect(quote.product_id.toLocaleLowerCase()).to.be.equal(event.productId);
+  });
 });

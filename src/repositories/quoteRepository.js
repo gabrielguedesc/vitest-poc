@@ -4,6 +4,7 @@ import dbConfig from '../configs/db.config';
 
 export const upsertAsync = async (quote) => {
   try{
+    console.log(quote)
     const pool = await mssql.connect(dbConfig);
     const request = pool.request();
     

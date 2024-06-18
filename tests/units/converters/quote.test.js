@@ -1,4 +1,5 @@
 import { vi, describe, expect, it } from "vitest";
+import { faker } from "@faker-js/faker";
 import { toQuote } from "../../../src/converters/quote";
 import { getByIdAsync } from '../../../src/gateways/personGateway';
 
@@ -16,19 +17,19 @@ describe('Quote converter', async () => {
       .toThrowError('Version not suported');
   });
 
-  it('should return quote, when event is valid', async () => {
+  it('should return a quote, when event is valid', async () => {
     // Arrange
     const event = {
-      id: 'ed66b1fd-b9ec-4177-81a5-84e966f81f7f',
-      personId: '03aac0ac-b542-49e6-857c-bb6d0a481882',
-      productId: '59d96053-4bf8-44e1-80ac-ebfc8be99493',
+      id: faker.string.uuid(),
+      personId: faker.string.uuid(),
+      productId: faker.string.uuid(),
       version: 2
     };
 
     const person = {
-      id: 'ed66b1fd-b9ec-4177-81a5-84e966f81f7f',
-      name: 'Gabriel Guedes Mock',
-      hash: '438bc6b4186bc65f617a7635f61103f6863bf964334b6c4a4985bfe4ec1587f7',
+      id: event.personId,
+      name: faker.person.fullName(),
+      hash: faker.string.uuid(),
       role: 1
     };
 
