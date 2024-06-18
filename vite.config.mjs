@@ -11,7 +11,8 @@ export default defineConfig({
         'src/configs/**',
         'src/handlers/**',
         'src/gateways/**',
-        'src/repositories/**'
+        'src/repositories/**',
+        'vitest.workspace.js'
       ],
       env: {
         ...config({ path: "./.env.test" }).parsed,
@@ -22,7 +23,8 @@ export default defineConfig({
       'src/configs/**',
       'src/handlers/**',
       'src/gateways/**',
-      'src/repositories/**'
+      'src/repositories/**',
+      'vitest.workspace.js'
     ],
     env: {
       ...config({ path: "./.env.test" }).parsed,
