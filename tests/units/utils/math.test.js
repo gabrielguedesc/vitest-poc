@@ -1,9 +1,9 @@
-import { it, describe, expect } from "vitest";
+import { it, describe, expect, test } from "vitest";
 import { sum, random } from "../../../src/utils/math";
 
 // Theory
 describe("Sum tests", () => {
-  it.each([
+  test.each([
     { a: 1, b: 1, expected: 2 },
     { a: 2, b: 2, expected: 4 },
     { a: 2, b: 1, expected: 3 },
@@ -19,8 +19,8 @@ describe("Random tests", () => {
     const number = random(10);
 
     // Asserts
-    expect(number).to.be.gte(0);
-    expect(number).to.be.lte(10);
+    expect(number).to.be.gte(0).and.lte(10);
+    // expect(number).to.be.lte();
     // expect(number).greaterThanOrEqual(0);
     // expect(number).lessThanOrEqual(10);
   });
